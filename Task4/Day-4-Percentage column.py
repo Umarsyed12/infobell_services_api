@@ -5,7 +5,7 @@ import csv
 from connect2db import *
 app = Flask(__name__)
 
-#conn= psycopg2.connect(host="localhost",port=5432,user="p  ostgres",password="Infobell@#0088",database='Coonection')
+#conn= psycopg2.connect(host="localhost",port=5432,user="p  ostgres",password="Infobell@#0088",database='Service_Api')
 conn = connect_db()
 
 cur=conn.cursor()
