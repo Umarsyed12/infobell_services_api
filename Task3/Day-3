@@ -6,7 +6,7 @@ import csv
 
 app = Flask(__name__)
 
-conn= psycopg2.connect(host="localhost",port=5432,user="postgres",password="postgres",database='arbind')
+    conn= psycopg2.connect(host="localhost",port=5432,user="postgres",password="postgres",database='Service_Api')
 cur=conn.cursor()
 
 table_name='Marks'
