@@ -1,0 +1,8 @@
+{
+    "Host" : "specjbb_mm",
+    "Disk" : "sda",
+    "nics" : "enp1s0",
+    "percentile" : "95",
+    "start_date" : "2022-07-22 00:00:00",
+    "end_date" : "2022-08-30 11:59:00"
+}
