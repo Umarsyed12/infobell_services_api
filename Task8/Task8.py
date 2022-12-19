@@ -4,12 +4,13 @@ from connect2db import *
 app = Flask(__name__)
 base = connect_db()
 cur = base.cursor()
-@app.route('/',methods =['GET'])
+@app.route('/disk',methods =['GET'])
 def nicks_name():
+    host = request.args.get('host')
     l = []
-    cur.execute("select nics from network")
-    #where host='td_synnex_4' and disks not like 'loop%%' and disks not like 'dm%%' and disks not like 'sr%%
-    data=cur.fetchall()
+    Diskquery = ("select nics from network where host=%s")
+    cur.execute(Diskquery, (host,))
+    data = cur.fetchall()
     print(data)
 
     for i in data:
