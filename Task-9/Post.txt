@@ -1,3 +1,0 @@
-{
-    "Host" : "spec_cpu_n2d_2vcpuhigh2g_mm"
-}
