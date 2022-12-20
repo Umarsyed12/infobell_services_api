@@ -15,7 +15,7 @@ end_date="2022-06-28 00:00:00"
 
 
 
-def create_anomaly_cpu(host, start_date, end_date):
+def create_anomaly_cpu(host, start_date, end_date): #create temp table and calculate percentile
     anomaly_query = (''' DROP TABLE If Exists "cpu_percentiles";
     CREATE Temp TABLE "cpu_percentiles"(Rank SERIAL,"timestamp" timestamp without time zone Not Null , 
                              "cpu_utilization" numeric Not Null, "percentile" numeric);
@@ -33,7 +33,7 @@ def create_anomaly_cpu(host, start_date, end_date):
     base.commit()
 
 
-def create_anomaly_data_cpu(percentile, Host, Disk, nics):
+def create_anomaly_data_cpu(percentile, Host, Disk, nics): #getting data and column_name
     anomaly_query = ('''
     Select A.*, 
     C."utilization" as "memory_utilization",

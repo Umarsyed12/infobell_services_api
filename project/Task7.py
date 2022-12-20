@@ -5,17 +5,15 @@ app = Flask(__name__)
 base = connect_db()
 cur = base.cursor()
 @app.route('/disk',methods =['GET'])
-def disk_name():
+def disk_name():# function for getting disks from disk where host is specific
     host = request.args.get('host')
     l = []
     Diskquery = ("select disks from disk where host=%s")
     cur.execute(Diskquery, (host,))
     data = cur.fetchall()
-    #print(data)
     for i in data:
         if i[0] not in l:
             l.append(i[0])
-    print("host name are :",l)
     resp_data = {"message": "successful!", "disk": l}
     response = json.dumps(resp_data)
     response = Response(response, status=200, mimetype='application/json')
