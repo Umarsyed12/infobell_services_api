@@ -1,3 +1,0 @@
-{
-    "Workload":"specjbb-c2d-2vcpu8g_mm"
-}
