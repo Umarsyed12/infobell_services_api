@@ -2,7 +2,7 @@ import json
 from connect2db import *
 from flask import Flask, request, jsonify, Response
 from benchmark_function_17 import *
-
+from output_response import *
 app = Flask(__name__)
 base = connect_db()
 mycursor = base.cursor()
@@ -241,7 +241,7 @@ def create_wl_data_DiskWeighted(percentile, workload, Disk, nics):
     print("ok2_DiskWeighted")
     return data, column_name
 
-
+'''
 def output_response(data, column_name):
     try:
         resp_dict = {}
@@ -263,7 +263,7 @@ def output_response(data, column_name):
         print(f"\n{'=' * 30}\n{e}\n{'=' * 30}\n")
         error = {"error": str(e)}
         return jsonify(error)
-
+'''
 
 @app.route('/get_workload', methods=['POST'])
 def get_workload():
@@ -276,24 +276,28 @@ def get_workload():
         dict={}
 
         create_wl_cpu(workload)
+        focus="Cpu_utilization"
         cpu_data, cpu_column_name=create_wl_data_cpu(percentile,workload,Disk,nics)
-        cpu_response=output_response(cpu_data,cpu_column_name)
-        dict.update({"Cpu_utilization":cpu_response})
+        cpu_response=output_response(cpu_data,cpu_column_name,focus)
+        dict.update({focus:cpu_response})
 
         create_wl_Memory(workload)
+        focus="memory_utilization"
         memory_data, memory_column_name = create_wl_data_memory(percentile, workload, Disk, nics)
-        memory_response = output_response(memory_data, memory_column_name)
-        dict.update({"memory_utilization": memory_response})
+        memory_response = output_response(memory_data, memory_column_name,focus)
+        dict.update({focus: memory_response})
 
         create_wl_DiskBusy(workload,Disk)
+        focus="DiskBusy"
         DiskBusy_data, DiskBusy_column_name = create_wl_data_DiskBusy(percentile, workload, Disk, nics)
-        DiskBusy_response = output_response(DiskBusy_data, DiskBusy_column_name)
-        dict.update({"DiskBusy": DiskBusy_response})
+        DiskBusy_response = output_response(DiskBusy_data, DiskBusy_column_name,focus)
+        dict.update({focus: DiskBusy_response})
 
         create_wl_DiskWeighted(workload,Disk)
+        focus = "DiskWeighted_response"
         DiskWeighted_data, DiskWeighted_column_name = create_wl_data_DiskWeighted(percentile, workload, Disk, nics)
-        DiskWeighted_response = output_response(DiskWeighted_data, DiskWeighted_column_name)
-        dict.update({"DiskWeighted": DiskWeighted_response})
+        DiskWeighted_response = output_response(DiskWeighted_data, DiskWeighted_column_name,focus)
+        dict.update({focus: DiskWeighted_response})
 
         resp_data = {"Output": dict}
         response = json.dumps(resp_data)
