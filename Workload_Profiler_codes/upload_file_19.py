@@ -2,7 +2,6 @@ import os
 import csv
 import json
 import enum
-import pandas as pd
 from connect2db import *
 from werkzeug.utils import secure_filename
 from flask import Flask, request, jsonify, Response
@@ -24,7 +23,7 @@ def upload():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             new_filename = f'{filename.split(".")[0]}{"."+"csv"}'
-            path = r'D:\\infobell\\pycharm\\poc_pro\\venv'
+            path = r'D:\infobell\pycharm\poc_pro'
             save_location = os.path.join(path, new_filename)
             file.save(save_location)
         else:
