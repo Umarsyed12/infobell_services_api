@@ -9,7 +9,7 @@ app = Flask(__name__)
 base = connectDB()
 cur = base.cursor()
 
-path = r"C:\Users\hp\Downloads\csv files\csv files (1)\csv files\cpu.csv"
+path = r"C:\Users\ANIKET\OneDrive\Documents\InfoBell\Project\Project\InfoBell_Project\csv files\cpu.csv"
 
 def create():
     cur.execute('DROP TABLE IF EXISTS cpu;')

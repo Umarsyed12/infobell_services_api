@@ -3,20 +3,20 @@ services:
   
   dbs:
     build: ./sql
-    image: varun99/workload_db:postgres
-    container_name: postgres_db
+    image: varun99/server:postgres
+    container_name: poste
     restart: always
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=Infobell@#0088
-      - POSTGRES_DB=Service_Api
+      - POSTGRES_DB=Services
     networks: 
       - app-network
     ports:
-      - '5432:5432'
+      - '5435:5432'
   python:
     build: ./api
-    image: varun99/workload_python:python
+    image: varun99/server:python
     container_name: python
     #command: python bulkload.py
     

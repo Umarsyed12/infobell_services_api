@@ -5,7 +5,7 @@ metadata:
 spec:
    containers:
       - name: python
-        image: varun99/server:python3.10
+        image: vishalkhetmalis/server:python3.10
         ports:
            - containerPort: 5002
 
@@ -14,7 +14,7 @@ metadata:
 spec:
    containers:
       - name: python
-        image: varun99/server:python3.10
+        image: vishalkhetmalis/server:python3.10
         ports:
            - containerPort: 5002         
            
