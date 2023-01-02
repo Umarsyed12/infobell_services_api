@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: python
+spec:
+   containers:
+      - name: python
+        image: vishalkhetmalis/server:python3.10
+        ports:
+           - containerPort: 5002
+
+metadata:
+   name: postgres
+spec:
+   containers:
+      - name: python
+        image: vishalkhetmalis/server:python3.10
+        ports:
+           - containerPort: 5002         
+           
