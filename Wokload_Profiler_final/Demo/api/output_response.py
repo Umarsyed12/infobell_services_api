@@ -1,3 +1,28 @@
+from flask import jsonify
+
+def responce(column_name, data):
+    try:
+        dict = {}
+        a=column_name
+        b=data
+        j, k = 0, 0
+        for i in range(len(b)):
+            if i==12:
+                break
+            else:
+                dict[a[j]] = b[i][k]
+                j+=1
+                k+=1
+        for i in a:
+            if dict[i] is None:
+                dict[i] = 0
+        return dict
+
+    except Exception as e:
+        print(f"\n{'=' * 30}\n{e}\n{'=' * 30}\n")
+        error = {"error": str(e)}
+        return jsonify(error)
+
 def output_response(data, column_name,focus):
     try:
         resp_dict = {}

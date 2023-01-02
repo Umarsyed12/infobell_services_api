@@ -1,8 +1,7 @@
-import psycopg2
-from flask import Flask, request, jsonify,Response
+from flask import Flask, Response
 import json
 import csv
-from connect2db import*
+from Workload_Profiler_Vishvnath.sql.connect2db import*
 
 
 app = Flask(__name__)

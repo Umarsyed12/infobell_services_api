@@ -1,5 +1,5 @@
 import json
-from connect2db import *
+from Workload_Profiler_Vishvnath.sql.connect2db import *
 from flask import Flask, request, jsonify, Response
 
 app = Flask(__name__)

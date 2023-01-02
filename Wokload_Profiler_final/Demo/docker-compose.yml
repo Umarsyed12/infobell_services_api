@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  
+  dbs:
+    build: ./sql
+    image: vishva15/workload_db:postgres
+    container_name: postgres_db
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=services_api
+    networks: 
+      - app-network
+    ports:
+      - '5432:5432'
+  python:
+    build: ./api
+    image: vishva15/workload_python:python
+    container_name: python
+    #command: python bulkload.py
+    
+    ports:
+      - 5000:5000
+    volumes:
+      - ./:/app
+    networks:
+      - app-network
+    depends_on:
+      - dbs
+    # restart: always 
+
+networks:
+  app-network:
+    name: app-network

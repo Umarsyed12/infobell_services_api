@@ -1,7 +1,5 @@
-import json
-import enum
-from connect2db import *
-from flask import Flask, request, jsonify, Response
+from Workload_Profiler_Vishvnath.sql.connect2db import *
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 base = connect_db()

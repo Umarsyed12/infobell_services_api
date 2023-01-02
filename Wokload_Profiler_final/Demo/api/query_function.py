@@ -1,6 +1,6 @@
 from connect2db import *
 
-base = connect_db()
+base = connectDB()
 mycursor = base.cursor()
 
 # Workload Profiler
@@ -61,7 +61,7 @@ def create_anomaly_data_cpu(percentile, Host, Disk, nics):
 def create_anomaly_Memory(host, start_date, end_date):
     global mycursor, base
     anomaly_query = (''' DROP TABLE If Exists "memory_percentiles";
-    CREATE Temp TABLE "memory_percentiles"(Rank SERIAL,"timestamp" timestamp without time zone Not Null Primary key , 
+    CREATE Temp TABLE "memory_percentiles"(Rank SERIAL,"timestamp" timestamp without time zone Not Null, 
                                  "memory_utilization" numeric Not Null, "percentile" numeric);
 
     INSERT INTO "memory_percentiles"("timestamp", "memory_utilization")
@@ -119,7 +119,7 @@ def create_anomaly_data_memory(percentile, Host, Disk, nics):
 def create_anomaly_DiskBusy(host, disk, start_date, end_date):
     global mycursor, base
     anomaly_query = (''' DROP TABLE If Exists "diskbusy_percentiles";
-    CREATE Temp TABLE "diskbusy_percentiles"(Rank SERIAL,"timestamp" timestamp without time zone Not Null Primary key , 
+    CREATE Temp TABLE "diskbusy_percentiles"(Rank SERIAL,"timestamp" timestamp without time zone Not Null, 
                                  "disk_busy" numeric Not Null, "percentile" numeric);
 
     INSERT INTO "diskbusy_percentiles"("timestamp", "disk_busy")
@@ -179,7 +179,7 @@ def create_anomaly_data_DiskBusy(percentile, Host, Disk, nics):
 def create_anomaly_DiskWeighted(host, disk, start_date, end_date):
     global mycursor , base
     anomaly_query = (''' DROP TABLE If Exists "diskweighted_percentiles";
-    CREATE Temp TABLE "diskweighted_percentiles"(Rank SERIAL,"timestamp" timestamp without time zone Not Null Primary key , 
+    CREATE Temp TABLE "diskweighted_percentiles"(Rank SERIAL,"timestamp" timestamp without time zone Not Null, 
                                  "disk_weighted" numeric Not Null, "percentile" numeric);
 
     INSERT INTO "diskweighted_percentiles"("timestamp", "disk_weighted")
@@ -237,7 +237,7 @@ def create_anomaly_data_DiskWeighted(percentile, Host, Disk, nics):
 def create_wl_cpu(workload):
     global mycursor, base
     anomaly_query = (''' DROP TABLE If Exists "cpu_wl_percentiles";
-    CREATE Temp TABLE "cpu_wl_percentiles"(Rank SERIAL,"timestamp" timestamp without time zone Not Null Primary key ,
+    CREATE Temp TABLE "cpu_wl_percentiles"(Rank SERIAL,"timestamp" timestamp without time zone Not Null,
                                  "cpu_utilization" numeric Not Null,"percentile" numeric);
     
     INSERT INTO "cpu_wl_percentiles"("timestamp", "cpu_utilization")
@@ -295,7 +295,7 @@ def create_wl_data_cpu(percentile, workload, Disk,nics):
 def create_wl_Memory(workload):
     global mycursor, base
     anomaly_query = (''' DROP TABLE If Exists "memory_wl_percentiles";
-    CREATE Temp TABLE "memory_wl_percentiles"(Rank SERIAL,"timestamp" timestamp without time zone Not Null Primary key ,
+    CREATE Temp TABLE "memory_wl_percentiles"(Rank SERIAL,"timestamp" timestamp without time zone Not Null,
                                  "memory_utilization" numeric Not Null, "percentile" numeric);
     
     INSERT INTO "memory_wl_percentiles"("timestamp", "memory_utilization")
@@ -353,7 +353,7 @@ def create_wl_data_memory(percentile, workload, Disk,nics):
 def create_wl_DiskBusy(workload,disk):
     global mycursor, base
     anomaly_query = (''' DROP TABLE If Exists "DiskBusy_wl_percentiles";
-    CREATE Temp TABLE "DiskBusy_wl_percentiles"(Rank SERIAL,"timestamp" timestamp without time zone Not Null Primary key , 
+    CREATE Temp TABLE "DiskBusy_wl_percentiles"(Rank SERIAL,"timestamp" timestamp without time zone Not Null, 
                                  "disk_busy" numeric Not Null, "percentile" numeric);
     
     INSERT INTO "DiskBusy_wl_percentiles"("timestamp", "disk_busy")
@@ -415,7 +415,7 @@ def create_wl_data_DiskBusy(percentile, workload, Disk,nics):
 def create_wl_DiskWeighted(workload, disk):
     global mycursor, base
     anomaly_query = (''' DROP TABLE If Exists "DiskWeighted_wl_percentiles";
-    CREATE Temp TABLE "DiskWeighted_wl_percentiles"(Rank SERIAL,"timestamp" timestamp without time zone Not Null Primary key ,
+    CREATE Temp TABLE "DiskWeighted_wl_percentiles"(Rank SERIAL,"timestamp" timestamp without time zone Not Null,
                                  "disk_weighted" numeric Not Null, "percentile" numeric);
     
     INSERT INTO "DiskWeighted_wl_percentiles"("timestamp", "disk_weighted")
@@ -477,7 +477,7 @@ def create_wl_data_DiskWeighted(percentile, workload, Disk,nics):
 def create_specific_cpu(host, specific):
     global mycursor, base
     anomaly_query = (''' DROP TABLE If Exists "percentiles";
-    CREATE Temp TABLE "percentiles"(Rank SERIAL,"timestamp" timestamp without time zone Not Null Primary key , 
+    CREATE Temp TABLE "percentiles"(Rank SERIAL,"timestamp" timestamp without time zone Not Null, 
                                  "cpu_utilization" numeric Not Null, "percentile" numeric);
     
     INSERT INTO "percentiles"("timestamp", "cpu_utilization")
@@ -496,7 +496,7 @@ def create_specific_cpu(host, specific):
 def create_specifi_Memory(host, specific):
     global mycursor, base
     anomaly_query = (''' DROP TABLE If Exists "percentiles";
-    CREATE Temp TABLE "percentiles"(Rank SERIAL,"timestamp" timestamp without time zone Not Null Primary key , 
+    CREATE Temp TABLE "percentiles"(Rank SERIAL,"timestamp" timestamp without time zone Not Null, 
                                  "memory_utilization" numeric Not Null, "percentile" numeric);
     
     INSERT INTO "percentiles"("timestamp", "memory_utilization")
@@ -517,7 +517,7 @@ def create_specifi_Memory(host, specific):
 def create_specific_DiskBusy(host, disk, specific):
     global mycursor, base
     anomaly_query = (''' DROP TABLE If Exists "percentiles";
-    CREATE Temp TABLE "percentiles"(Rank SERIAL,"timestamp" timestamp without time zone Not Null Primary key , 
+    CREATE Temp TABLE "percentiles"(Rank SERIAL,"timestamp" timestamp without time zone Not Null, 
                                  "disk_busy" numeric Not Null, "percentile" numeric);
     
     INSERT INTO "percentiles"("timestamp", "disk_busy")
@@ -538,7 +538,7 @@ def create_specific_DiskBusy(host, disk, specific):
 def create_specific_DiskWeighted(host, disk, specific):
     global mycursor, base
     anomaly_query = (''' DROP TABLE If Exists "percentiles";
-    CREATE Temp TABLE "percentiles"(Rank SERIAL,"timestamp" timestamp without time zone Not Null Primary key , 
+    CREATE Temp TABLE "percentiles"(Rank SERIAL,"timestamp" timestamp without time zone Not Null, 
                                  "disk_weighted" numeric Not Null, "percentile" numeric);
     
     INSERT INTO "percentiles"("timestamp", "disk_weighted")
