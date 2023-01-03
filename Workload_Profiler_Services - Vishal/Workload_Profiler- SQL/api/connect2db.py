@@ -1,4 +1,5 @@
 import psycopg2
+from flask import jsonify
 
 def connectDB():
     filename = "db.config"
@@ -13,7 +14,11 @@ def connectDB():
             port=config['port']
         )
         return dbase
-    except Exception as error:
-        print('check database details',error)
+    except Exception as e:
+        error = {"error": "Connection with database is failed"}
+        print(f"\n{'=' * 30}\n{e}\n{'=' * 30}\n")
+        print(f"\n{'=' * 30}\n{error}\n{'=' * 30}\n")
+        return jsonify(error)
 
-dbase=connectDB()
+if __name__ == '__main__':
+    connectDB()

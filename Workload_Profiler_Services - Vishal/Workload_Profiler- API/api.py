@@ -1,30 +1,23 @@
-import json
-from connect2db import *
-from flask import Flask, request, jsonify, Response
-from query_function import *
-from output_response import *
-
+from utils import *
 
 app = Flask(__name__)
 base = connectDB()
 cur = base.cursor()
 
-@app.route('/get_hostname', methods=['GET','POST'])
+@app.route('/get_hostname', methods=['GET'])
 def postMark():
     try:
         hosts = []
-        cur.execute(
-        "select host from cpu order by host")
+        cur.execute("select host from cpu order by host")
         data = cur.fetchall()
         base.commit()
         set_1 = set(data)
         for i in set_1:
             hosts.append(i[0])
-        count = len(hosts)
-        resp_data = {"No. of hosts": count, "Total Hosts": hosts}
+        resp_data = {"No. of hosts": len(hosts), "Total Hosts": hosts}
         response = json.dumps(resp_data)
         response = Response(response, status=200, mimetype='application/json')
-        return  response
+        return response
     except Exception as e:
         print(f"\n{'='*30}\n{e}\n{'='*30}\n")
         error = {"error": str(e)}
@@ -35,14 +28,12 @@ def diskPost():
     try:
         host = request.json["Host"]
         disks = []
-        cur.execute(
-        "select distinct(disks) from disk where host=%s and disks not like 'loop%%' and disks not like 'dm%%' and disks not like 'sr%%'", [host])
+        cur.execute("select distinct(disks) from disk where host=%s and disks not like 'loop%%' and disks not like 'dm%%' and disks not like 'sr%%'", [host])
         data = cur.fetchall()
         base.commit()
         for i in data:
             disks.append(i[0])
-        count = len(disks)
-        resp_data = {"No. of Disks": count, "Total Disks": disks}
+        resp_data = {"No. of Disks": len(disks), "Total Disks": disks}
         response = json.dumps(resp_data)
         response = Response(response, status=200, mimetype='application/json')
         return  response
@@ -51,13 +42,12 @@ def diskPost():
         error = {"error": str(e)}
         return jsonify(error)
 
-@app.route('/getNics', methods=['GET','POST'])
+@app.route('/getNics', methods=['GET'])
 def nicsPost():
     try:
         host = request.json["Host"]
         nics = []
-        cur.execute(
-        "select distinct nics from network where host = %s and nics !='lo' order by nics", [host])
+        cur.execute("select distinct nics from network where host = %s and nics !='lo' order by nics", [host])
         data = cur.fetchall()
         base.commit()
         for i in data:
@@ -72,12 +62,11 @@ def nicsPost():
         error = {"error": str(e)}
         return jsonify(error)
 
-@app.route('/dateRange', methods=['GET','POST'])
+@app.route('/dateRange', methods=['GET'])
 def datePost():
     try:
         host = request.json["Host"]
-        cur.execute(
-        "select date(min(timestamp)) as start_date,date(max(timestamp)) as End_date from cpu where host=%s", [host])
+        cur.execute("select date(min(timestamp)) as start_date,date(max(timestamp)) as End_date from cpu where host=%s", [host])
         data = cur.fetchall()
         base.commit()
         resp_data = {"Starting Date" : data[0][0], "End Date" : data[0][1]}
@@ -110,7 +99,7 @@ def fetchData1():
         error = {"error": str(e)}
         return jsonify(error)
 
-@app.route('/task-12', methods=['POST'])
+@app.route('/getPercentile', methods=['POST'])
 def fetchData2():
     try:
         Host = request.json['Host']

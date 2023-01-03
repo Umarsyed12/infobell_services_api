@@ -1,15 +1,10 @@
-import os
-import csv
-import json
-import pandas as pd
-from connect2db import *
-from flask import Flask, request, jsonify, Response
+from utils import *
 
 app = Flask(__name__)
 base = connectDB()
 cur = base.cursor()
 
-path = r"C:\Users\ANIKET\OneDrive\Documents\InfoBell\Project\Project\InfoBell_Project\csv files\cpu.csv"
+path = r"D:\Vishal\Professional\Infobell IT\Project\Profiler Project\csv files\cpu.csv"
 
 def create():
     cur.execute('DROP TABLE IF EXISTS cpu;')
