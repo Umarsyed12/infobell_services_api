@@ -1,6 +1,6 @@
 from connect2db import *
 
-base = connectDB()
+base = connectdb()
 mycursor = base.cursor()
 
 # Workload Profiler

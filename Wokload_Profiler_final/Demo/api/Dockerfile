@@ -6,5 +6,5 @@ COPY . /
 RUN apt-get update
 RUN pip3 install -r requirements.txt
 EXPOSE 3306
-CMD ["python3","api.py"]
+CMD ["python3","service_api.py"]
 

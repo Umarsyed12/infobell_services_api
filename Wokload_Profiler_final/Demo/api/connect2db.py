@@ -1,6 +1,6 @@
 import psycopg2
 
-def connectDB():
+def connectdb():
     filename = "db.config"
     contents = open(filename).read()
     config = eval(contents)
@@ -16,4 +16,4 @@ def connectDB():
     except Exception as error:
         print('check database details',error)
 
-dbase=connectDB()
+dbase=connectdb()
