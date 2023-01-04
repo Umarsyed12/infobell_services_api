@@ -3,10 +3,12 @@ from connect2db import *
 from flask import Flask, request, jsonify, Response
 from query_function import *
 from output_response import *
+from flask_cors import CORS
 
 
 app = Flask(__name__)
-base = connect2db()
+CORS(app)
+base = connect_db()
 mycursor = base.cursor()
 
 @app.route('/get_hostname')
@@ -34,8 +36,7 @@ def disk_name():
     try:
         host = request.args.get('host')
         l = []
-        mycursor.execute("select disks from disk where host=%s", (host,))
-        #where host='td_synnex_4' and disks not like 'loop%%' and disks not like 'dm%%' and disks not like 'sr%%
+        mycursor.execute("select distinct(disks) from disk where host=%s and disks not like 'loop%%' and disks not like 'dm%%' and disks not like 'sr%%'", [host])
         data=mycursor.fetchall()
         print(data)
         for i in data:
