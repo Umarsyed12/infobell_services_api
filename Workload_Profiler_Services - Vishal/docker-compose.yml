@@ -1,21 +1,21 @@
 version: '3.8'
 services:
-  
   dbs:
-    build: ./sql
+    build: ./Workload_Profiler-SQL
     image: vishalkhetmalis/server:postgres
-    container_name: poste
+    container_name: postgres
     restart: always
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgress
-      - POSTGRES_DB=Services
+      - POSTGRES_USER = postgres
+      - POSTGRES_PASSWORD = postgress
+      - POSTGRES_DB = Services
     networks: 
       - app-network
     ports:
       - '5435:5432'
+
   python:
-    build: ./api
+    build: ./Workload_Profiler-API
     image: vishalkhetmalis/server:python
     container_name: python
     #command: python bulkload.py
