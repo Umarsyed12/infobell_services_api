@@ -1,0 +1,23 @@
+version: "4"
+services:
+    db:
+        #container_name: mydb
+        image: postgres
+        ports:
+            - 5432:5432
+        restart: always
+        environment:   
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: services_api
+        volumes:
+            - ./localhost:/docker-entrypoint-initdb.d/
+        
+    api:
+        #container_name: myapp
+        depends_on:
+            - db
+        restart: always
+        build: ./
+        ports:
+            - "5000:5000"
