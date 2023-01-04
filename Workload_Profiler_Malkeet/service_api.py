@@ -3,9 +3,10 @@ from connect2db import *
 from flask import Flask, request, jsonify, Response
 from query_function import *
 from output_response import *
-
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 base = connect_db()
 mycursor = base.cursor()
 
