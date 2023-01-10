@@ -3,19 +3,21 @@ from flask import jsonify
 
 def connectDB():
     filename = "db.config"
-    contents = open(filename).read()
-    config = eval(contents)
+    content = open(filename).read()
+    config = eval(content)
+
     try:
         dbase = psycopg2.connect(
-            host=config['host'],
-            dbname=config['dbname'],
-            user=config['user'],
-            password=config['password'],
-            port=config['port']
+            host =config["host"],
+            database=config["dbname"],
+            user=config["user"],
+            password= config["password"],
+            port=config["port"]
         )
         return dbase
+
     except Exception as e:
-        error = {"error": "Connection with database is failed"}
+        error = {"error" : "Connection with database is failed"}
         print(f"\n{'=' * 30}\n{e}\n{'=' * 30}\n")
         print(f"\n{'=' * 30}\n{error}\n{'=' * 30}\n")
         return jsonify(error)

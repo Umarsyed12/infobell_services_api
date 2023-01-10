@@ -13,16 +13,13 @@ def create_anomaly_cpu(host, start_date, end_date):
 
     INSERT INTO "cpu_percentiles"("timestamp", "cpu_utilization")
     SELECT "timestamp", "utilization" FROM public."cpu"
-    Where "host" = %s and "timestamp" Between %s and %s
-    Order by "utilization" Asc, "timestamp" Desc;
+    Where "host" = %s and "timestamp" Between %s and %s Order by "utilization" Asc, "timestamp" Desc;
 
     Update "cpu_percentiles"
-    Set "percentile" = Round(Round(Cast(Rank AS Decimal) /(Select count(*) from "cpu_percentiles"), 5)*100,3);'''
-                     )
+    Set "percentile" = Round(Round(Cast(Rank AS Decimal) /(Select count(*) from "cpu_percentiles"), 5)*100,3);''')
     mycursor.execute(anomaly_query, (host, start_date, end_date))
     print("ok_cpu")
     base.commit()
-
 
 def create_anomaly_data_cpu(percentile, Host, Disk, nics):
     global mycursor, base
@@ -39,7 +36,7 @@ def create_anomaly_data_cpu(percentile, Host, Disk, nics):
     from 
     (Select * from "cpu_percentiles"
     Where "percentile" <= %s
-    Order By "percentile"  Desc
+    Order By "percentile" Desc
     Limit 1) A
     Left Join 
     (Select * from public."memory" Where "host" = %s) C
@@ -56,7 +53,6 @@ def create_anomaly_data_cpu(percentile, Host, Disk, nics):
     print("ok2_cpu")
     base.commit()
     return data, column_name
-
 
 def create_anomaly_Memory(host, start_date, end_date):
     global mycursor, base
@@ -76,7 +72,6 @@ def create_anomaly_Memory(host, start_date, end_date):
     mycursor.execute(anomaly_query, (host, start_date, end_date))
     print("ok_memory")
     base.commit()
-
 
 def create_anomaly_data_memory(percentile, Host, Disk, nics):
     global mycursor, base
@@ -115,7 +110,6 @@ def create_anomaly_data_memory(percentile, Host, Disk, nics):
     base.commit()
     return data, column_name
 
-
 def create_anomaly_DiskBusy(host, disk, start_date, end_date):
     global mycursor, base
     anomaly_query = (''' DROP TABLE If Exists "diskbusy_percentiles";
@@ -135,7 +129,6 @@ def create_anomaly_DiskBusy(host, disk, start_date, end_date):
     mycursor.execute(anomaly_query, (host, disk, start_date, end_date))
     print("ok_DiskBusy")
     base.commit()
-
 
 def create_anomaly_data_DiskBusy(percentile, Host, Disk, nics):
     global mycursor , base
@@ -175,7 +168,6 @@ def create_anomaly_data_DiskBusy(percentile, Host, Disk, nics):
     base.commit()
     return data, column_name
 
-
 def create_anomaly_DiskWeighted(host, disk, start_date, end_date):
     global mycursor , base
     anomaly_query = (''' DROP TABLE If Exists "diskweighted_percentiles";
@@ -193,7 +185,6 @@ def create_anomaly_DiskWeighted(host, disk, start_date, end_date):
     mycursor.execute(anomaly_query, (host, disk, start_date, end_date))
     print("ok_DiskWeighted")
     base.commit()
-
 
 def create_anomaly_data_DiskWeighted(percentile, Host, Disk, nics):
     global mycursor , base
@@ -247,13 +238,10 @@ def create_wl_cpu(workload):
     
     Update "cpu_wl_percentiles"
     Set "percentile" = Round(Round(Cast(Rank AS Decimal) /(Select count(*) from "cpu_wl_percentiles"), 5)*100,3);
-    
-    '''
-                     )
+    ''')
     mycursor.execute(anomaly_query, (workload,))
     print("ok_cpu")
     base.commit()
-
 
 def create_wl_data_cpu(percentile, workload, Disk,nics):
     global mycursor, base
@@ -281,7 +269,6 @@ def create_wl_data_cpu(percentile, workload, Disk,nics):
     Left Join
     (Select * from public."network" Where "workload" = %s and "nics" = %s) E
     on A."timestamp" = E."timestamp";
-    
     ''')
     mycursor.execute(anomaly_query, (percentile, workload, workload, Disk, workload,nics,))
     data = mycursor.fetchall()
@@ -289,8 +276,6 @@ def create_wl_data_cpu(percentile, workload, Disk,nics):
     column_name = [desc[0] for desc in mycursor.description]
     print("ok2_cpu")
     return data, column_name
-
-
 
 def create_wl_Memory(workload):
     global mycursor, base
@@ -310,7 +295,6 @@ def create_wl_Memory(workload):
     mycursor.execute(anomaly_query, (workload,))
     print("ok_memory")
     base.commit()
-
 
 def create_wl_data_memory(percentile, workload, Disk,nics):
     global mycursor, base
@@ -349,7 +333,6 @@ def create_wl_data_memory(percentile, workload, Disk,nics):
     print("ok2_memory")
     return data, column_name
 
-
 def create_wl_DiskBusy(workload,disk):
     global mycursor, base
     anomaly_query = (''' DROP TABLE If Exists "DiskBusy_wl_percentiles";
@@ -363,20 +346,15 @@ def create_wl_DiskBusy(workload,disk):
     
     Update "DiskBusy_wl_percentiles"
     Set "percentile" = Round(Round(Cast(Rank AS Decimal) /(Select count(*) from "DiskBusy_wl_percentiles"), 5)*100,3);
-    
-    
-    '''
-                     )
+    ''')
     mycursor.execute(anomaly_query, (workload, disk,))
     print("ok_DiskBusy")
     base.commit()
-
 
 def create_wl_data_DiskBusy(percentile, workload, Disk,nics):
     global mycursor, base
     mycursor = base.cursor()
     anomaly_query = ('''
-
     Select  A.*,
     B."utilization" as "cpu_utilization",
     C."utilization" as "memory_utilization",
@@ -403,14 +381,12 @@ def create_wl_data_DiskBusy(percentile, workload, Disk,nics):
     Left Join 
     (Select * from public."network" Where "workload" = %s and "nics" = %s ) E
     on A."timestamp" = E."timestamp";
-    
     ''')
     mycursor.execute(anomaly_query, (percentile, workload, workload, workload, Disk, workload,nics))
     data = mycursor.fetchall()
     column_name = [desc[0] for desc in mycursor.description]
     print("ok2_DiskBusy")
     return data, column_name
-
 
 def create_wl_DiskWeighted(workload, disk):
     global mycursor, base
@@ -425,19 +401,14 @@ def create_wl_DiskWeighted(workload, disk):
     
     Update "DiskWeighted_wl_percentiles"
     Set "percentile" = Round(Round(Cast(Rank AS Decimal) /(Select count(*) from "DiskWeighted_wl_percentiles"), 5)*100,3);
-    
-    
-    '''
-                     )
+    ''')
     mycursor.execute(anomaly_query, (workload, disk,))
     print("ok_DiskWeighted")
     base.commit()
 
-
 def create_wl_data_DiskWeighted(percentile, workload, Disk,nics):
     global mycursor, base
     anomaly_query = ('''
-
     Select  A.*,
     B."utilization" as "cpu_utilization",
     C."utilization" as "memory_utilization",
@@ -486,12 +457,10 @@ def create_specific_cpu(host, specific):
     Order by "utilization" Asc, "timestamp" Desc;
     Update "percentiles"
     Set "percentile" = Round(Round(Cast(Rank AS Decimal) /(Select count(*) from "percentiles"), 5)*100,3);
-    '''
-                         )
+    ''')
     mycursor.execute(anomaly_query, (host, specific))
     print("ok_cpu")
     base.commit()
-
 
 def create_specifi_Memory(host, specific):
     global mycursor, base
@@ -506,13 +475,10 @@ def create_specifi_Memory(host, specific):
     
     Update "percentiles"
     Set "percentile" = Round(Round(Cast(Rank AS Decimal) /(Select count(*) from "percentiles"), 5)*100,3);
-    
-    '''
-                         )
+    ''')
     mycursor.execute(anomaly_query, (host, specific))
     print("ok_memory")
     base.commit()
-
 
 def create_specific_DiskBusy(host, disk, specific):
     global mycursor, base
@@ -527,13 +493,10 @@ def create_specific_DiskBusy(host, disk, specific):
     
     Update "percentiles"
     Set "percentile" = Round(Round(Cast(Rank AS Decimal) /(Select count(*) from "percentiles"), 5)*100,3);
-    
-    '''
-                         )
+    ''')
     mycursor.execute(anomaly_query, (host, disk, specific))
     print("ok_DiskBusy")
     base.commit()
-
 
 def create_specific_DiskWeighted(host, disk, specific):
     global mycursor, base
@@ -548,8 +511,7 @@ def create_specific_DiskWeighted(host, disk, specific):
     
     Update "percentiles"
     Set "percentile" = Round(Round(Cast(Rank AS Decimal) /(Select count(*) from "percentiles"), 5)*100,3);
-    '''
-                         )
+    ''')
     mycursor.execute(anomaly_query, (host, disk, specific))
     print("ok_DiskWeighted")
     base.commit()

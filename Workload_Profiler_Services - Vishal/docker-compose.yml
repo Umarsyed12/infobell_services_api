@@ -1,4 +1,4 @@
-version: '3.8'
+version: '4'
 services:
   dbs:
     build: ./Workload_Profiler-SQL
@@ -6,30 +6,22 @@ services:
     container_name: postgres
     restart: always
     environment:
-      - POSTGRES_USER = postgres
-      - POSTGRES_PASSWORD = postgress
-      - POSTGRES_DB = Services
-    networks: 
-      - app-network
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgress
+      POSTGRES_DB: Services
+    volumes:
+        - ./localhost:/docker-entrypoint-initdb.d/
     ports:
-      - '5435:5432'
+      - '5432:5432'
 
   python:
     build: ./Workload_Profiler-API
     image: vishalkhetmalis/server:python
     container_name: python
-    #command: python bulkload.py
-    
     ports:
       - 5000:5000
     volumes:
       - ./:/app
-    networks:
-      - app-network
     depends_on:
       - dbs
-    # restart: always 
-
-networks:
-  app-network:
-    name: app-network
+    # restart: always
