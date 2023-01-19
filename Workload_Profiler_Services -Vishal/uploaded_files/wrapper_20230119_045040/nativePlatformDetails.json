@@ -1,0 +1,1 @@
+{"nativePlatformID": "Intel(R)Core(TM)i5-10300HCPU@2.50GHz0-7c3_8GB768_0g19012023050917", "nativePlatformName": "Intel(R)Core(TM)i5-10300HCPU@2.50GHz0-7c3_8GB768_0g", "cores": "4", "model_name": "Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz", "vcpu_count": "0-7", "mem_max": "3_8GB", "disk_capacity": "768_0g", "net_type": ["bonding_masters", "eth0", "lo", "sit0", "tunl0"]}

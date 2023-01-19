@@ -1,0 +1,1 @@
+{"nativePlatformID": "AMDEPYC7543-128c2_0t100g26g", "cores": "32", "model_name": "AMD EPYC 7543 32-Core Processor", "vcpu_count": "128", "mem_max": "2015.43", "disk_type": "sda,nvme0n1,nvme1n1", "disk_capacity": "100GiB", "net_capacity": "25GB and 1GB"}

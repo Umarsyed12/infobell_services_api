@@ -1,0 +1,7 @@
+Hostname:idrac-2tmmk93-os
+BMC IP:10.216.136.165
+BMC User:admin
+OS IP:10.216.169.107
+OS User:amd
+Data captured at:02-12-2022 09:10:59
+Data stored at:/home/amd/profiler_wrapper/njmon_wrapper/output/wrapper_idrac-2tmmk93-os_20221202_091059
