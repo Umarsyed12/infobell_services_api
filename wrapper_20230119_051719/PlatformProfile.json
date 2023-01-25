@@ -1,0 +1,570 @@
+{
+    "Chassis": [
+        {
+            "ID": "1",
+            "Manufacturer": "HPE",
+            "Model": "ProLiant DL325 Gen10 Plus",
+            "PowerState": "On",
+            "Health": "OK",
+            "Systems": [
+                {
+                    "ID": "1",
+                    "Manufacturer": "HPE",
+                    "PowerState": "On",
+                    "Model": "AMD EPYC 7542 32-Core Processor                ",
+                    "Count": 1,
+                    "SKU": "P18606-B21",
+                    "SystemType": "Physical",
+                    "Bios": {
+                        "BIOSVersion": "A43 v2.56 (02/10/2022)",
+                        "Attributes": {
+                            "AccessControlService": "Enabled",
+                            "AcpiHpet": "Enabled",
+                            "AcpiRootBridgePxm": "Enabled",
+                            "AcpiSlit": "Enabled",
+                            "AdvCrashDumpMode": "Disabled",
+                            "AllowLoginWithIlo": "Disabled",
+                            "AmdL1Prefetcher": "Enabled",
+                            "AmdL2Prefetcher": "Enabled",
+                            "AmdMemPStates": "Auto",
+                            "AmdMemoryBurstRefresh": "Enabled",
+                            "AmdMemoryInterleaving": "Enabled",
+                            "AmdMemoryIntlvSize": "AmdMemIntlv256",
+                            "AmdMmcfgBase3Gb": "Disabled",
+                            "AmdPeriodicDirectoryRinse": "Disabled",
+                            "AmdSecureMemoryEncryption": "Disabled",
+                            "ApplicationPowerBoost": "Enabled",
+                            "AssetTagProtection": "Unlocked",
+                            "AutoPowerOn": "RestoreLastState",
+                            "BootMode": "Uefi",
+                            "BootOrderPolicy": "RetryIndefinitely",
+                            "CStateEfficiencyMode": "Enabled",
+                            "CollabPowerControl": "Enabled",
+                            "ConsistentDevNaming": "LomsAndSlots",
+                            "DataFabricCStateEnable": "Auto",
+                            "DaylightSavingsTime": "DaylightSavingsTimeDisabled",
+                            "DeterminismControl": "DeterminismCtrlAuto",
+                            "Dhcpv4": "Enabled",
+                            "DramControllerPowerDown": "Disabled",
+                            "DynamicPcieRateChange": "Disabled",
+                            "DynamicPowerCapping": "Disabled",
+                            "EmbSata1Aspm": "Disabled",
+                            "EmbSata1Enable": "Auto",
+                            "EmbSata1PCIeOptionROM": "Enabled",
+                            "EmbSata2Aspm": "Disabled",
+                            "EmbSata2Enable": "Auto",
+                            "EmbSata2PCIeOptionROM": "Enabled",
+                            "EmbVideoConnection": "Auto",
+                            "EmbeddedDiagnostics": "Enabled",
+                            "EmbeddedIpxe": "Enabled",
+                            "EmbeddedSerialPort": "Com2Irq3",
+                            "EmbeddedUefiShell": "Enabled",
+                            "EmsConsole": "Disabled",
+                            "EnabledCoresPerProc": "CoresPerProc0",
+                            "EnhancedPreferredIOBusEnable": "Disabled",
+                            "EraseUserDefaults": "No",
+                            "ExtendedAmbientTemp": "Disabled",
+                            "ExtendedMemTest": "Disabled",
+                            "F11BootMenu": "Enabled",
+                            "FCScanPolicy": "CardConfig",
+                            "FanFailPolicy": "Shutdown",
+                            "FanInstallReq": "EnableMessaging",
+                            "HourFormat": "24Hours",
+                            "HttpSupport": "Auto",
+                            "InfinityFabricPstate": "Auto",
+                            "IntelligentProvisioning": "Enabled",
+                            "IpmiWatchdogTimerAction": "PowerCycle",
+                            "IpmiWatchdogTimerStatus": "IpmiWatchdogTimerOff",
+                            "IpmiWatchdogTimerTimeout": "Timeout30Min",
+                            "Ipv4Address": "0.0.0.0",
+                            "Ipv4Gateway": "0.0.0.0",
+                            "Ipv4PrimaryDNS": "0.0.0.0",
+                            "Ipv4SubnetMask": "0.0.0.0",
+                            "Ipv6Address": "::",
+                            "Ipv6ConfigPolicy": "Automatic",
+                            "Ipv6Duid": "Auto",
+                            "Ipv6Gateway": "::",
+                            "Ipv6PrimaryDNS": "::",
+                            "IpxeAutoStartScriptLocation": "Auto",
+                            "IpxeBootOrder": "Disabled",
+                            "IpxeScriptAutoStart": "Disabled",
+                            "IpxeScriptVerification": "Disabled",
+                            "LastLevelCacheAsNUMANode": "Disabled",
+                            "MaxMemBusFreqMHz": "Auto",
+                            "MaxPcieSpeed": "PerPortCtrl",
+                            "MaximumSevAsid": "AsidCount509",
+                            "MemPatrolScrubbing": "Disabled",
+                            "MemRefreshRate": "Refreshx1",
+                            "MinProcIdlePower": "NoCStates",
+                            "MinimumSevAsid": 1,
+                            "MixedPowerSupplyReporting": "Enabled",
+                            "Nbio0BusBase": 192,
+                            "Nbio0BusLimit": 255,
+                            "Nbio0LclkDpmLevel": "Auto",
+                            "Nbio1BusBase": 128,
+                            "Nbio1BusLimit": 191,
+                            "Nbio1LclkDpmLevel": "Auto",
+                            "Nbio2BusBase": 64,
+                            "Nbio2BusLimit": 127,
+                            "Nbio2LclkDpmLevel": "Auto",
+                            "Nbio3BusLimit": 63,
+                            "Nbio3LclkDpmLevel": "Auto",
+                            "NetworkBootRetry": "Enabled",
+                            "NetworkBootRetryCount": 20,
+                            "NoExecutionProtection": "Enabled",
+                            "NumaGroupSizeOpt": "Clustered",
+                            "NumaMemoryDomainsPerSocket": "FourMemoryDomainsPerSocket",
+                            "NvmeOptionRom": "Enabled",
+                            "NvmePort3": "Nvme",
+                            "NvmeRaid": "Disabled",
+                            "Ocp1AuxiliaryPower": "Enabled",
+                            "PackagePowerLimitControlMode": "Auto",
+                            "PatrolScrubDuration": 24,
+                            "PciResourcePadding": "Normal",
+                            "PciSlot10Aspm": "Disabled",
+                            "PciSlot10Bifurcation": "Auto",
+                            "PciSlot10Enable": "Auto",
+                            "PciSlot10LinkSpeed": "Auto",
+                            "PciSlot10OptionROM": "Enabled",
+                            "PciSlot1Bifurcation": "Auto",
+                            "PciSlot2Bifurcation": "Auto",
+                            "PerformanceDeterminism": "PerformanceDeterministic",
+                            "PlatformCertificate": "Enabled",
+                            "PlatformRASPolicy": "FirmwareFirst",
+                            "PostAsr": "PostAsrOff",
+                            "PostAsrDelay": "Delay30Min",
+                            "PostBootProgress": "Disabled",
+                            "PostDiscoveryMode": "Auto",
+                            "PostF1Prompt": "Delayed20Sec",
+                            "PostScreenMode": "VerboseMode",
+                            "PostVideoSupport": "DisplayAll",
+                            "PowerButton": "Enabled",
+                            "PowerOnDelay": "NoDelay",
+                            "PowerRegulator": "OsControl",
+                            "PreBootNetwork": "Auto",
+                            "PrebootNetworkEnvPolicy": "Auto",
+                            "PreferredIOBusEnable": "Disabled",
+                            "ProcAMDBoost": "Enabled",
+                            "ProcAMDBoostControl": "AmdFmaxBoostAuto",
+                            "ProcAes": "Enabled",
+                            "ProcAmdIoVt": "Enabled",
+                            "ProcSMT": "Enabled",
+                            "ProcX2Apic": "Auto",
+                            "ProductId": "P18606-B21",
+                            "RedundantPowerSupply": "BalancedMode",
+                            "RemovableFlashBootSeq": "ExternalKeysFirst",
+                            "RestoreDefaults": "No",
+                            "RestoreManufacturingDefaults": "No",
+                            "RomSelection": "CurrentRom",
+                            "SataSanitize": "Disabled",
+                            "SataSecureErase": "Disabled",
+                            "SaveUserDefaults": "No",
+                            "SciRasSupport": "Ghesv1Support",
+                            "SecStartBackupImage": "Disabled",
+                            "SecureBootStatus": "Disabled",
+                            "SerialConsoleBaudRate": "BaudRate115200",
+                            "SerialConsoleEmulation": "Vt100Plus",
+                            "SerialConsolePort": "Auto",
+                            "SerialNumber": "MXQ02203PV",
+                            "ServerConfigLockStatus": "Disabled",
+                            "SetupBrowserSelection": "Auto",
+                            "Slot10MctpBroadcastSupport": "Enabled",
+                            "Slot10NicBoot1": "NetworkBoot",
+                            "Slot10NicBoot2": "Disabled",
+                            "Slot1MctpBroadcastSupport": "Enabled",
+                            "Slot2MctpBroadcastSupport": "Enabled",
+                            "SpeculativeLockScheduling": "Enabled",
+                            "Sriov": "Enabled",
+                            "ThermalConfig": "MaxCooling",
+                            "ThermalShutdown": "Enabled",
+                            "TimeFormat": "Utc",
+                            "TimeZone": "Unspecified",
+                            "TpmChipId": "None",
+                            "TpmFips": "NotSpecified",
+                            "TpmState": "NotPresent",
+                            "TpmType": "NoTpm",
+                            "TransparentSecureMemoryEncryption": "Disabled",
+                            "UefiOptimizedBoot": "Enabled",
+                            "UefiSerialDebugLevel": "ErrorsOnly",
+                            "UefiShellBootOrder": "Disabled",
+                            "UefiShellPhysicalPresenceKeystroke": "Enabled",
+                            "UefiShellScriptVerification": "Disabled",
+                            "UefiShellStartup": "Disabled",
+                            "UefiShellStartupLocation": "Auto",
+                            "UefiShellStartupUrlFromDhcp": "Disabled",
+                            "UefiVariableAccessFwControl": "Disabled",
+                            "UsbBoot": "Enabled",
+                            "UsbControl": "UsbEnabled",
+                            "UserDefaultsState": "Disabled",
+                            "UtilityLang": "English",
+                            "VirtualSerialPort": "Com1Irq4",
+                            "VlanControl": "Disabled",
+                            "WakeOnLan": "Enabled",
+                            "WorkloadProfile": "Custom",
+                            "iSCSISoftwareInitiator": "Enabled",
+                            "AgesaVersion": "NaN"
+                        }
+                    },
+                    "OS": {
+                        "BIOS": {
+                            "BiosVendor": "HPE",
+                            "BiosVersion": "A43",
+                            "BiosDate": "02/28/2020",
+                            "ProductName": "ProLiant DL325 Gen10 Plus"
+                        },
+                        "SystemType": "server",
+                        "HypervisorVendor": null,
+                        "StaticHostname": "hpe-client-mxq02203ph",
+                        "OperatingSystem": "Ubuntu 20.04.3 LTS",
+                        "Kernel": "Linux 5.4.0-124-generic",
+                        "Architecture": "x86-64",
+                        "CPU(s)": "128",
+                        "On-lineCPU(s)List": "0-127",
+                        "Thread(s)PerCore": "2",
+                        "Core(s)PerSocket": "64",
+                        "Socket(s)": "1",
+                        "NUMAnode(s)": "1",
+                        "FrequencyBoost": null,
+                        "CPUMHz": "3262.071",
+                        "CPUMaxMHz": null,
+                        "CPUMinMHz": null,
+                        "Virtualization": "AMD-V",
+                        "L1dCache": "2 MiB",
+                        "L1iCache": "2 MiB",
+                        "L2Cache": "32 MiB",
+                        "L3Cache": "256 MiB",
+                        "microcode": [
+                            "0x8301034"
+                        ],
+                        "memory": [
+                            {
+                                "type": "Mem",
+                                "total": "503Gi",
+                                "used": "57Gi",
+                                "free": "298Gi",
+                                "shared": "2.0Mi",
+                                "buff_cache": "147Gi",
+                                "available": "441Gi"
+                            },
+                            {
+                                "type": "Swap",
+                                "total": "8.0Gi",
+                                "used": "0B",
+                                "free": "8.0Gi"
+                            },
+                            {
+                                "type": "Total",
+                                "total": "511Gi",
+                                "used": "57Gi",
+                                "free": "306Gi"
+                            }
+                        ]
+                    },
+                    "Network": {
+                        "NetworkAdapters": [
+                            {
+                                "Name": "Marvell 2P 10GbE 10GBASE-T QL41132HQRJ-HC OCP3 Adapter",
+                                "PhysicalPorts": [
+                                    {
+                                        "LinkStatus": "LinkUp",
+                                        "MacAddress": "14:02:ec:d9:f6:c8"
+                                    },
+                                    {
+                                        "LinkStatus": null,
+                                        "MacAddress": "14:02:ec:d9:f6:c9"
+                                    }
+                                ]
+                            }
+                        ],
+                        "PCISlots": [
+                            {
+                                "ID": "3",
+                                "Technology": "OCP NIC 3.0",
+                                "LinkLanes": "x8",
+                                "Name": "OCP Slot 10",
+                                "Status": {
+                                    "OperationalStatus": [
+                                        {
+                                            "Status": "InUse"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "ID": "13",
+                                "Technology": "PCIExpressGen4",
+                                "LinkLanes": "x4",
+                                "Name": "NVMe Drive Box 1 Bay 1",
+                                "Status": {
+                                    "OperationalStatus": [
+                                        {
+                                            "Status": "InUse"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "ID": "14",
+                                "Technology": "PCIExpressGen4",
+                                "LinkLanes": "x4",
+                                "Name": "NVMe Drive Box 1 Bay 2",
+                                "Status": {
+                                    "OperationalStatus": [
+                                        {
+                                            "Status": "InUse"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "Processor": [
+                        {
+                            "InstructionSet": "x86-64",
+                            "Manufacturer": "Advanced Micro Devices, Inc.",
+                            "MaxSpeedMHz": 4100,
+                            "Model": "AMD EPYC 7542 32-Core Processor                ",
+                            "ProcessorArchitecture": "x86",
+                            "TotalCores": 32,
+                            "TotalThreads": 64,
+                            "Socket": "Proc 1",
+                            "Characteristics": [
+                                "64Bit",
+                                "MultiCore",
+                                "HwThread",
+                                "ExecuteProtection",
+                                "EnhancedVirtualization",
+                                "PowerPerfControl"
+                            ],
+                            "CurrentClockSpeedMhz": 2900
+                        }
+                    ],
+                    "Memory": {
+                        "Members": [
+                            {
+                                "ID": "proc1dimm1",
+                                "RankCount": 2,
+                                "Status": {
+                                    "Health": "OK",
+                                    "State": "Enabled"
+                                },
+                                "Capacity": 32768,
+                                "MemoryModuleType": "RDIMM",
+                                "Manufacturer": "Hynix",
+                                "OperatingSpeedMhz": 2666,
+                                "AllowedSpeedMHz": 2666
+                            },
+                            {
+                                "ID": "proc1dimm2",
+                                "RankCount": null,
+                                "Status": {
+                                    "Health": "OK",
+                                    "State": "Absent"
+                                },
+                                "Capacity": 0,
+                                "MemoryModuleType": null,
+                                "Manufacturer": null,
+                                "OperatingSpeedMhz": null,
+                                "AllowedSpeedMHz": null
+                            },
+                            {
+                                "ID": "proc1dimm3",
+                                "RankCount": 2,
+                                "Status": {
+                                    "Health": "OK",
+                                    "State": "Enabled"
+                                },
+                                "Capacity": 32768,
+                                "MemoryModuleType": "RDIMM",
+                                "Manufacturer": "Hynix",
+                                "OperatingSpeedMhz": 2666,
+                                "AllowedSpeedMHz": 2666
+                            },
+                            {
+                                "ID": "proc1dimm4",
+                                "RankCount": null,
+                                "Status": {
+                                    "Health": "OK",
+                                    "State": "Absent"
+                                },
+                                "Capacity": 0,
+                                "MemoryModuleType": null,
+                                "Manufacturer": null,
+                                "OperatingSpeedMhz": null,
+                                "AllowedSpeedMHz": null
+                            },
+                            {
+                                "ID": "proc1dimm5",
+                                "RankCount": 2,
+                                "Status": {
+                                    "Health": "OK",
+                                    "State": "Enabled"
+                                },
+                                "Capacity": 32768,
+                                "MemoryModuleType": "RDIMM",
+                                "Manufacturer": "Hynix",
+                                "OperatingSpeedMhz": 2666,
+                                "AllowedSpeedMHz": 2666
+                            },
+                            {
+                                "ID": "proc1dimm6",
+                                "RankCount": null,
+                                "Status": {
+                                    "Health": "OK",
+                                    "State": "Absent"
+                                },
+                                "Capacity": 0,
+                                "MemoryModuleType": null,
+                                "Manufacturer": null,
+                                "OperatingSpeedMhz": null,
+                                "AllowedSpeedMHz": null
+                            },
+                            {
+                                "ID": "proc1dimm7",
+                                "RankCount": 2,
+                                "Status": {
+                                    "Health": "OK",
+                                    "State": "Enabled"
+                                },
+                                "Capacity": 32768,
+                                "MemoryModuleType": "RDIMM",
+                                "Manufacturer": "Hynix",
+                                "OperatingSpeedMhz": 2666,
+                                "AllowedSpeedMHz": 2666
+                            },
+                            {
+                                "ID": "proc1dimm8",
+                                "RankCount": null,
+                                "Status": {
+                                    "Health": "OK",
+                                    "State": "Absent"
+                                },
+                                "Capacity": 0,
+                                "MemoryModuleType": null,
+                                "Manufacturer": null,
+                                "OperatingSpeedMhz": null,
+                                "AllowedSpeedMHz": null
+                            },
+                            {
+                                "ID": "proc1dimm9",
+                                "RankCount": null,
+                                "Status": {
+                                    "Health": "OK",
+                                    "State": "Absent"
+                                },
+                                "Capacity": 0,
+                                "MemoryModuleType": null,
+                                "Manufacturer": null,
+                                "OperatingSpeedMhz": null,
+                                "AllowedSpeedMHz": null
+                            },
+                            {
+                                "ID": "proc1dimm10",
+                                "RankCount": 2,
+                                "Status": {
+                                    "Health": "OK",
+                                    "State": "Enabled"
+                                },
+                                "Capacity": 32768,
+                                "MemoryModuleType": "RDIMM",
+                                "Manufacturer": "Hynix",
+                                "OperatingSpeedMhz": 2666,
+                                "AllowedSpeedMHz": 2666
+                            },
+                            {
+                                "ID": "proc1dimm11",
+                                "RankCount": null,
+                                "Status": {
+                                    "Health": "OK",
+                                    "State": "Absent"
+                                },
+                                "Capacity": 0,
+                                "MemoryModuleType": null,
+                                "Manufacturer": null,
+                                "OperatingSpeedMhz": null,
+                                "AllowedSpeedMHz": null
+                            },
+                            {
+                                "ID": "proc1dimm12",
+                                "RankCount": 2,
+                                "Status": {
+                                    "Health": "OK",
+                                    "State": "Enabled"
+                                },
+                                "Capacity": 32768,
+                                "MemoryModuleType": "RDIMM",
+                                "Manufacturer": "Hynix",
+                                "OperatingSpeedMhz": 2666,
+                                "AllowedSpeedMHz": 2666
+                            },
+                            {
+                                "ID": "proc1dimm13",
+                                "RankCount": null,
+                                "Status": {
+                                    "Health": "OK",
+                                    "State": "Absent"
+                                },
+                                "Capacity": 0,
+                                "MemoryModuleType": null,
+                                "Manufacturer": null,
+                                "OperatingSpeedMhz": null,
+                                "AllowedSpeedMHz": null
+                            },
+                            {
+                                "ID": "proc1dimm14",
+                                "RankCount": 2,
+                                "Status": {
+                                    "Health": "OK",
+                                    "State": "Enabled"
+                                },
+                                "Capacity": 32768,
+                                "MemoryModuleType": "RDIMM",
+                                "Manufacturer": "Hynix",
+                                "OperatingSpeedMhz": 2666,
+                                "AllowedSpeedMHz": 2666
+                            },
+                            {
+                                "ID": "proc1dimm15",
+                                "RankCount": null,
+                                "Status": {
+                                    "Health": "OK",
+                                    "State": "Absent"
+                                },
+                                "Capacity": 0,
+                                "MemoryModuleType": null,
+                                "Manufacturer": null,
+                                "OperatingSpeedMhz": null,
+                                "AllowedSpeedMHz": null
+                            },
+                            {
+                                "ID": "proc1dimm16",
+                                "RankCount": 2,
+                                "Status": {
+                                    "Health": "OK",
+                                    "State": "Enabled"
+                                },
+                                "Capacity": 32768,
+                                "MemoryModuleType": "RDIMM",
+                                "Manufacturer": "Hynix",
+                                "OperatingSpeedMhz": 2666,
+                                "AllowedSpeedMHz": 2666
+                            }
+                        ]
+                    },
+                    "Storage": [
+                        {
+                            "ID": "bf115bdb",
+                            "CapacityBytes": 1600321000000,
+                            "MediaType": "SSD"
+                        },
+                        {
+                            "ID": "bda92d86",
+                            "CapacityBytes": 3840755000000,
+                            "MediaType": "SSD"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

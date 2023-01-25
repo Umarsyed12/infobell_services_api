@@ -1,0 +1,19 @@
+version: "3"
+services:
+    api:
+        restart: always
+        build: ./
+        ports:
+            - "5000:5000"
+
+    wrap:
+        image: meer86/final_wrapper:docker
+        #environment:
+            #- "COUNT=${COUNT}"
+        # command:
+        #     - '1'
+
+    UI:
+        image: dhiraj30/workload_profiler_ui:frontend_workload
+        ports:
+            - 3000:3000
