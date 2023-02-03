@@ -1,0 +1,17 @@
+version: "4"
+services:
+    api:
+        restart: always
+        build: ./
+        ports:
+            - "5000:5000"
+    
+    # wrap:
+    #     image: meer86/wrapper:docker
+        
+
+    
+    # ui:
+    #     image: dhiraj30/workload_profiler_ui:frontend_workload
+    #     ports: 
+    #         - "3000:3000"

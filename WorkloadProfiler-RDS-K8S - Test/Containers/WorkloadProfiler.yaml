@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: project
+
+spec:
+  containers:
+  - name: api
+    image: khupteaniket/kube:api
+    ports:
+         - containerPort: 5000
+    imagePullPolicy: Always
+
+  - name: ui
+    image: dhiraj30/workload_profiler_ui:frontend_workload
+    ports:
+         - containerPort: 3000
+    imagePullPolicy: Always
+
+  restartPolicy: OnFailure
+
